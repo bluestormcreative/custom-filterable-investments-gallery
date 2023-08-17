@@ -21,6 +21,14 @@
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_custom_filterable_post_gallery_block_init() {
-	register_block_type( __DIR__ . '/build' );
+
+	$blocks = [
+		'filterable-post-block',
+		'custom-filterable-post-gallery'
+	];
+
+	foreach ($blocks as $block) 
+		register_block_type( __DIR__ . '/build/{$block}' );
+	}
 }
 add_action( 'init', 'create_block_custom_filterable_post_gallery_block_init' );

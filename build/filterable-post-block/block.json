@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "cfpg/custom-filterable-post-gallery",
+  "name": "cfpg/filterable-post-block",
   "version": "0.1.0",
-  "title": "Custom Filterable Post Gallery",
+  "title": "Filterable Post Block",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Add a filterable gallery of custom posts.",
+  "description": "Custom post block for filterable gallery or standalone use.",
   "example": {},
   "supports": {
     "html": false
