@@ -27,7 +27,7 @@ function create_block_custom_filterable_post_gallery_block_init() {
 		'custom-filterable-post-gallery'
 	];
 
-	foreach ($blocks as $block) 
+	foreach ($blocks as $block) {
 		register_block_type( __DIR__ . '/build/{$block}' );
 	}
 }
