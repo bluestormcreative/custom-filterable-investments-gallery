@@ -24,11 +24,11 @@ function create_block_custom_filterable_post_gallery_block_init() {
 
 	$blocks = [
 		'filterable-post-block',
-		'custom-filterable-post-gallery'
+		'filterable-gallery-block'
 	];
 
 	foreach ($blocks as $block) {
-		register_block_type( __DIR__ . '/build/{$block}' );
+		register_block_type( __DIR__ . "/build/{$block}" );
 	}
 }
 add_action( 'init', 'create_block_custom_filterable_post_gallery_block_init' );
