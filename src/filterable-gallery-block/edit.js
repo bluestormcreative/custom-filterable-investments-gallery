@@ -33,8 +33,8 @@ export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
 			{ __(
-				'Custom Filterable Post Gallery – hello from the editor!',
-				'custom-filterable-post-gallery'
+				'Filterable Post Gallery Block – hello from the editor!',
+				'cfpg'
 			) }
 		</p>
 	);
