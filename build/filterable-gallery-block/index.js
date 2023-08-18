@@ -223,7 +223,7 @@ module.exports = window["wp"]["i18n"];
   \*************************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cfig/custom-filterable-post-gallery","version":"0.1.0","title":"Filterable Post Gallery","category":"widgets","icon":"smiley","description":"Add a filterable gallery of custom posts.","example":{},"supports":{"html":false},"textdomain":"cfig","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cfig/custom-filterable-investments-gallery","version":"0.1.0","title":"Filterable Post Gallery","category":"widgets","icon":"smiley","description":"Add a filterable gallery of custom posts.","example":{},"supports":{"html":false},"textdomain":"cfig","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 
