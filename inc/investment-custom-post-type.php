@@ -132,3 +132,47 @@ function investment_category_custom_taxonomy() {
 	register_taxonomy( 'investment-category', [ 'investment' ], $args );
 }
 add_action( 'init', 'investment_category_custom_taxonomy' );
+
+// Add featured image column to admin lists
+// Set thumbnail size
+add_image_size( 'investment-admin-featured-image', 60, 60, false );
+
+// Filter the columns
+function cfpg_add_investment_image_column( $cfpg_cols ){
+  $cfpg_cols['investment_thumb'] = __('Image');
+  return $cfpg_cols;
+}
+add_filter( 'manage_investment_posts_columns', 'cfpg_add_investment_image_column', 2 );
+
+// Add featured image thumbnail to the WP Admin table.
+function cfpg_investment_thumbnail_column( $cfpg_cols, $id ){
+  switch( $cfpg_cols ){
+    case 'investment_thumb':
+    if ( function_exists( 'the_post_thumbnail' ) )
+      echo the_post_thumbnail( 'investment-admin-featured-image' );
+    break;
+  }
+}
+add_action( 'manage_investment_posts_custom_column', 'cfpg_investment_thumbnail_column', 5, 2 );
+
+// Move the new column at the first place.
+function cfpg_investment_column_order( $cols ) {
+  $n_cols = array();
+  $move = 'investment_thumb';
+  $before = 'title';
+
+  foreach( $cols as $key => $value ) {
+    if ( $key === $before ){
+      $n_cols[$move] = $move;
+    }
+    $n_cols[$key] = $value;
+  }
+  return $n_cols;
+}
+add_filter( 'manage_investment_posts_columns', 'cfpg_investment_column_order' );
+
+// Format the column.
+function cfpg_add_admin_styles() {
+	echo '<style>.column-investment_thumb {width: 60px;}</style>';
+}
+add_action( 'admin_head', 'cfpg_add_admin_styles' );
