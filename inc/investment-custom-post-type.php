@@ -139,7 +139,7 @@ add_image_size( 'investment-admin-featured-image', 60, 60, false );
 
 // Filter the columns
 function cfpg_add_investment_image_column( $cfpg_cols ){
-  $cfpg_cols['investment_thumb'] = __('Image');
+  $cfpg_cols['investment_thumb'] = __( 'Image' );
   return $cfpg_cols;
 }
 add_filter( 'manage_investment_posts_columns', 'cfpg_add_investment_image_column', 2 );
@@ -155,14 +155,14 @@ function cfpg_investment_thumbnail_column( $cfpg_cols, $id ){
 }
 add_action( 'manage_investment_posts_custom_column', 'cfpg_investment_thumbnail_column', 5, 2 );
 
-// Move the new column at the first place.
+// Move the new column to left-most place.
 function cfpg_investment_column_order( $cols ) {
   $n_cols = array();
   $move = 'investment_thumb';
   $before = 'title';
 
   foreach( $cols as $key => $value ) {
-    if ( $key === $before ){
+    if ( $key === $before ) {
       $n_cols[$move] = $move;
     }
     $n_cols[$key] = $value;
@@ -171,7 +171,7 @@ function cfpg_investment_column_order( $cols ) {
 }
 add_filter( 'manage_investment_posts_columns', 'cfpg_investment_column_order' );
 
-// Format the column.
+// Adjust the column width.
 function cfpg_add_admin_styles() {
 	echo '<style>.column-investment_thumb {width: 60px;}</style>';
 }
