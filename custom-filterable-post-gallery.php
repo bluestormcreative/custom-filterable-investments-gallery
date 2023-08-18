@@ -13,6 +13,9 @@
  * @package           cfpg
  */
 
+// Investment Post Type.
+require_once __DIR__ . '/inc/investment-custom-post-type.php';
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
