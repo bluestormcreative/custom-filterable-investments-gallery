@@ -54,7 +54,7 @@ __webpack_require__.r(__webpack_exports__);
 function Edit() {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filterable Post Gallery Block – hello from the editor!', 'cfpg'));
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filterable Post Gallery Block – hello from the editor!', 'cfig'));
 }
 
 /***/ }),
@@ -223,7 +223,7 @@ module.exports = window["wp"]["i18n"];
   \*************************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cfpg/custom-filterable-post-gallery","version":"0.1.0","title":"Filterable Post Gallery","category":"widgets","icon":"smiley","description":"Add a filterable gallery of custom posts.","example":{},"supports":{"html":false},"textdomain":"cfpg","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cfig/custom-filterable-post-gallery","version":"0.1.0","title":"Filterable Post Gallery","category":"widgets","icon":"smiley","description":"Add a filterable gallery of custom posts.","example":{},"supports":{"html":false},"textdomain":"cfig","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

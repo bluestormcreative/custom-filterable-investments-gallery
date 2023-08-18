@@ -1,4 +1,4 @@
-=== Custom Filterable Post Gallery ===
+=== Custom Filterable Investments Gallery ===
 Contributors:      The WordPress Contributors
 Tags:              block
 Tested up to:      6.1

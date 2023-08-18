@@ -34,7 +34,7 @@ export default function Edit() {
 		<p { ...useBlockProps() }>
 			{ __(
 				'Filterable Post Gallery Block – hello from the editor!',
-				'cfpg'
+				'cfig'
 			) }
 		</p>
 	);

@@ -1,8 +1,8 @@
 <?php
 /**
- * Custom Filterable Post Gallery: Investment custom post type registration
+ * Custom Filterable Investments Gallery: Investment custom post type registration
  *
- * @package cfpg
+ * @package cfig
  */
 
 
@@ -10,42 +10,42 @@
 function investment_custom_post_type() {
 
 	$labels = [
-		'name' => __( 'Investments', 'cfpg' ),
-		'singular_name' => __( 'Investment', 'cfpg' ),
-		'menu_name' => __( 'Investments', 'cfpg' ),
-		'all_items' => __( 'All Investments', 'cfpg' ),
-		'add_new' => __( 'Add new', 'cfpg' ),
-		'add_new_item' => __( 'Add new Investment', 'cfpg' ),
-		'edit_item' => __( 'Edit Investment', 'cfpg' ),
-		'new_item' => __( 'New Investment', 'cfpg' ),
-		'view_item' => __( 'View Investment', 'cfpg' ),
-		'view_items' => __( 'View Investments', 'cfpg' ),
-		'search_items' => __( 'Search Investments', 'cfpg' ),
-		'not_found' => __( 'No Investments found', 'cfpg' ),
-		'not_found_in_trash' => __( 'No Investments found in trash', 'cfpg' ),
-		'parent' => __( 'Parent Investment:', 'cfpg' ),
-		'featured_image' => __( 'Featured image for this Investment', 'cfpg' ),
-		'set_featured_image' => __( 'Set featured image for this Investment', 'cfpg' ),
-		'remove_featured_image' => __( 'Remove featured image for this Investment', 'cfpg' ),
-		'use_featured_image' => __( 'Use as featured image for this Investment', 'cfpg' ),
-		'archives' => __( 'Investment archives', 'cfpg' ),
-		'insert_into_item' => __( 'Insert into Investment', 'cfpg' ),
-		'uploaded_to_this_item' => __( 'Upload to this Investment', 'cfpg' ),
-		'filter_items_list' => __( 'Filter Investments list', 'cfpg' ),
-		'items_list_navigation' => __( 'Investments list navigation', 'cfpg' ),
-		'items_list' => __( 'Investments list', 'cfpg' ),
-		'attributes' => __( 'Investments attributes', 'cfpg' ),
-		'name_admin_bar' => __( 'Investment', 'cfpg' ),
-		'item_published' => __( 'Investment published', 'cfpg' ),
-		'item_published_privately' => __( 'Investment published privately.', 'cfpg' ),
-		'item_reverted_to_draft' => __( 'Investment reverted to draft.', 'cfpg' ),
-		'item_scheduled' => __( 'Investment scheduled', 'cfpg' ),
-		'item_updated' => __( 'Investment updated.', 'cfpg' ),
-		'parent_item_colon' => __( 'Parent Investment:', 'cfpg' ),
+		'name' => __( 'Investments', 'cfig' ),
+		'singular_name' => __( 'Investment', 'cfig' ),
+		'menu_name' => __( 'Investments', 'cfig' ),
+		'all_items' => __( 'All Investments', 'cfig' ),
+		'add_new' => __( 'Add new', 'cfig' ),
+		'add_new_item' => __( 'Add new Investment', 'cfig' ),
+		'edit_item' => __( 'Edit Investment', 'cfig' ),
+		'new_item' => __( 'New Investment', 'cfig' ),
+		'view_item' => __( 'View Investment', 'cfig' ),
+		'view_items' => __( 'View Investments', 'cfig' ),
+		'search_items' => __( 'Search Investments', 'cfig' ),
+		'not_found' => __( 'No Investments found', 'cfig' ),
+		'not_found_in_trash' => __( 'No Investments found in trash', 'cfig' ),
+		'parent' => __( 'Parent Investment:', 'cfig' ),
+		'featured_image' => __( 'Featured image for this Investment', 'cfig' ),
+		'set_featured_image' => __( 'Set featured image for this Investment', 'cfig' ),
+		'remove_featured_image' => __( 'Remove featured image for this Investment', 'cfig' ),
+		'use_featured_image' => __( 'Use as featured image for this Investment', 'cfig' ),
+		'archives' => __( 'Investment archives', 'cfig' ),
+		'insert_into_item' => __( 'Insert into Investment', 'cfig' ),
+		'uploaded_to_this_item' => __( 'Upload to this Investment', 'cfig' ),
+		'filter_items_list' => __( 'Filter Investments list', 'cfig' ),
+		'items_list_navigation' => __( 'Investments list navigation', 'cfig' ),
+		'items_list' => __( 'Investments list', 'cfig' ),
+		'attributes' => __( 'Investments attributes', 'cfig' ),
+		'name_admin_bar' => __( 'Investment', 'cfig' ),
+		'item_published' => __( 'Investment published', 'cfig' ),
+		'item_published_privately' => __( 'Investment published privately.', 'cfig' ),
+		'item_reverted_to_draft' => __( 'Investment reverted to draft.', 'cfig' ),
+		'item_scheduled' => __( 'Investment scheduled', 'cfig' ),
+		'item_updated' => __( 'Investment updated.', 'cfig' ),
+		'parent_item_colon' => __( 'Parent Investment:', 'cfig' ),
 	];
 
 	$args = [
-		'label' => __( 'Investments', 'cfpg' ),
+		'label' => __( 'Investments', 'cfig' ),
 		'labels' => $labels,
 		'description' => '',
 		'public' => true,
@@ -81,25 +81,25 @@ add_action( 'init', 'investment_custom_post_type', 0 );
 add_image_size( 'investment-admin-featured-image', 60, 60, false );
 
 // Filter the columns
-function cfpg_add_investment_image_column( $cfpg_cols ){
-  $cfpg_cols['investment_thumb'] = __( 'Image' );
-  return $cfpg_cols;
+function cfig_add_investment_image_column( $cfig_cols ){
+  $cfig_cols['investment_thumb'] = __( 'Image' );
+  return $cfig_cols;
 }
-add_filter( 'manage_investment_posts_columns', 'cfpg_add_investment_image_column', 2 );
+add_filter( 'manage_investment_posts_columns', 'cfig_add_investment_image_column', 2 );
 
 // Add featured image thumbnail to the WP Admin table.
-function cfpg_investment_thumbnail_column( $cfpg_cols, $id ){
-  switch( $cfpg_cols ){
+function cfig_investment_thumbnail_column( $cfig_cols, $id ){
+  switch( $cfig_cols ){
     case 'investment_thumb':
     if ( function_exists( 'the_post_thumbnail' ) )
       echo the_post_thumbnail( 'investment-admin-featured-image' );
     break;
   }
 }
-add_action( 'manage_investment_posts_custom_column', 'cfpg_investment_thumbnail_column', 5, 2 );
+add_action( 'manage_investment_posts_custom_column', 'cfig_investment_thumbnail_column', 5, 2 );
 
 // Move the new column to left-most place.
-function cfpg_investment_column_order( $cols ) {
+function cfig_investment_column_order( $cols ) {
   $n_cols = array();
   $move = 'investment_thumb';
   $before = 'title';
@@ -112,10 +112,10 @@ function cfpg_investment_column_order( $cols ) {
   }
   return $n_cols;
 }
-add_filter( 'manage_investment_posts_columns', 'cfpg_investment_column_order' );
+add_filter( 'manage_investment_posts_columns', 'cfig_investment_column_order' );
 
 // Adjust the column width.
-function cfpg_add_admin_styles() {
+function cfig_add_admin_styles() {
 	echo '<style>.column-investment_thumb {width: 60px;}</style>';
 }
-add_action( 'admin_head', 'cfpg_add_admin_styles' );
+add_action( 'admin_head', 'cfig_add_admin_styles' );

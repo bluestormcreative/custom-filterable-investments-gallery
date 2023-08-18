@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:       Custom Filterable Post Gallery
- * Description:       Add a filterable gallery of custom posts. Scaffolded with Create Block tool.
+ * Plugin Name:       Custom Filterable Investments Gallery
+ * Description:       Add a filterable gallery of investment posts. Scaffolded with Create Block tool.
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            Blue Storm Creative
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       cfpg
+ * Text Domain:       cfig
  *
- * @package           cfpg
+ * @package           cfig
  */
 
 // Investment Post Type.
@@ -26,7 +26,7 @@ require_once __DIR__ . '/inc/investment-category-custom-taxonomy.php';
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function cfpg_custom_filterable_post_gallery_blocks_init() {
+function cfig_custom_filterable_post_gallery_blocks_init() {
 
 	$blocks = [
 		'filterable-post-block',
@@ -37,4 +37,4 @@ function cfpg_custom_filterable_post_gallery_blocks_init() {
 		register_block_type( __DIR__ . "/build/{$block}" );
 	}
 }
-add_action( 'init', 'cfpg_custom_filterable_post_gallery_blocks_init' );
+add_action( 'init', 'cfig_custom_filterable_post_gallery_blocks_init' );
