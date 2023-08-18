@@ -10,7 +10,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       cfpg
  *
- * @package           create-block
+ * @package           cfpg
  */
 
 /**
@@ -20,7 +20,7 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_custom_filterable_post_gallery_block_init() {
+function cfpg_custom_filterable_post_gallery_blocks_init() {
 
 	$blocks = [
 		'filterable-post-block',
@@ -31,4 +31,4 @@ function create_block_custom_filterable_post_gallery_block_init() {
 		register_block_type( __DIR__ . "/build/{$block}" );
 	}
 }
-add_action( 'init', 'create_block_custom_filterable_post_gallery_block_init' );
+add_action( 'init', 'cfpg_custom_filterable_post_gallery_blocks_init' );
