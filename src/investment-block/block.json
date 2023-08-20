@@ -11,6 +11,23 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"logoImage": {
+			"type": "integer"
+		},
+		"business": {
+			"type": "string"
+		},
+		"sector": {
+			"type": "string"
+		},
+		"year": {
+			"type": "string"
+		},
+		"type": {
+			"type": "string"
+		}
+	},
 	"textdomain": "cfig",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
