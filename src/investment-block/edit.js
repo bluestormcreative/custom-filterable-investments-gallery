@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,13 +29,40 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+	const blockProps = useBlockProps({ className: "investment-block editor" });
+
 	return (
-		<div className="" { ...useBlockProps() }>
-			{ __(
-				'Investment Block – hello from the editor!',
-				'cfig'
-			) }
+		<div {...blockProps}>
+			<h4>Logo Image</h4>
+			<h4>Business:</h4>
+			<RichText
+				tagName="span"
+				value={attributes.business}
+				onChange={(business) => setAttributes({ business })}
+				placeholder={__("Enter the business description. ")}
+			/>
+			<h4>Sector:</h4>
+			<RichText
+				tagName="span"
+				value={attributes.sector}
+				onChange={(sector) => setAttributes({ sector })}
+				placeholder={__("Enter the sector. ")}
+			/>
+			<h4>Year:</h4>
+			<RichText
+				tagName="span"
+				value={attributes.year}
+				onChange={(year) => setAttributes({ year })}
+				placeholder={__("Enter the year. ")}
+			/>
+			<h4>Type:</h4>
+			<RichText
+				tagName="span"
+				value={attributes.type}
+				onChange={(type) => setAttributes({ type })}
+				placeholder={__("Enter the type of investment. ")}
+			/>
 		</div>
 	);
 }
