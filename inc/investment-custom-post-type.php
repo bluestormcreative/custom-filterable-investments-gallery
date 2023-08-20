@@ -70,6 +70,10 @@ function investment_custom_post_type() {
 		'menu_icon' => 'dashicons-money',
 		'supports' => [ 'title', 'editor', 'thumbnail', 'custom-fields', 'revisions' ],
 		'show_in_graphql' => false,
+		'template_lock' => 'all',
+		'template' => [
+			['cfig/investment-block', [] ]
+		],
 	];
 
 	register_post_type( 'investment', $args );
@@ -119,3 +123,13 @@ function cfig_add_admin_styles() {
 	echo '<style>.column-investment_thumb {width: 60px;}</style>';
 }
 add_action( 'admin_head', 'cfig_add_admin_styles' );
+
+// Only allow the investment block type
+function cfig_allow_only_investment_block_type( $post ) {
+	$allowed_blocks = [];
+	if ( $post->post_type === 'investment' ) :
+			$allowed_blocks[] = 'cfig/investment-block';
+	endif;
+	return $allowed_blocks;
+}
+add_filter('allowed_block_types', 'cfig_allow_only_investment_block_type', 10, 2);

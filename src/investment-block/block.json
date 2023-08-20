@@ -12,16 +12,20 @@
 		"html": false
 	},
 	"attributes": {
-		"logoImage": {
-			"type": "integer"
-		},
+		"lock": {
+        "type": "object",
+        "default": {
+            "move": true,
+            "remove": true
+        }
+    },
 		"business": {
 			"type": "string"
 		},
 		"sector": {
 			"type": "string"
 		},
-		"year": {
+		"years": {
 			"type": "string"
 		},
 		"type": {
