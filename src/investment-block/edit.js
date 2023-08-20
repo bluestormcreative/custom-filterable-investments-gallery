@@ -1,67 +1,37 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
 import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
+import { useBlockProps } from '@wordpress/block-editor';
+import { TextControl } from "@wordpress/components";
 import './editor.scss';
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {WPElement} Element to render.
- */
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({ className: "investment-block editor" });
+	const { business, sector, years, type } = attributes;
 
 	return (
 		<div {...blockProps}>
-			<h4>Logo Image</h4>
-			<h4>Business:</h4>
-			<RichText
-				tagName="span"
-				value={attributes.business}
+			<TextControl
+				label={__("Business", "cfig")}
+				value={business}
 				onChange={(business) => setAttributes({ business })}
-				placeholder={__("Enter the business description. ")}
+				placeholder={__("Enter the business description", "cfig")}
 			/>
-			<h4>Sector:</h4>
-			<RichText
-				tagName="span"
-				value={attributes.sector}
+			<TextControl
+				label={__("Sector", "cfig")}
+				value={sector}
 				onChange={(sector) => setAttributes({ sector })}
-				placeholder={__("Enter the sector. ")}
+				placeholder={__("Enter the sector.", "cfig")}
 			/>
-			<h4>Year:</h4>
-			<RichText
-				tagName="span"
-				value={attributes.year}
-				onChange={(year) => setAttributes({ year })}
-				placeholder={__("Enter the year. ")}
+			<TextControl
+				label={__("Years", "cfig")}
+				value={years}
+				onChange={(years) => setAttributes({ years })}
+				placeholder={__("Enter the years of investment.", "cfig")}
 			/>
-			<h4>Type:</h4>
-			<RichText
-				tagName="span"
-				value={attributes.type}
+			<TextControl
+				label={__("Type", "cfig")}
+				value={type}
 				onChange={(type) => setAttributes({ type })}
-				placeholder={__("Enter the type of investment. ")}
+				placeholder={__("Enter the type of investment.", "cfig")}
 			/>
 		</div>
 	);
