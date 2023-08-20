@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "cfig/filterable-post-block",
+  "name": "cfig/investment-block",
   "version": "0.1.0",
-  "title": "Filterable Post Block",
+  "title": "Investment Block",
   "category": "widgets",
   "icon": "smiley",
   "description": "Custom post block for filterable gallery or standalone use.",

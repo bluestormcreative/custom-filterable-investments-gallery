@@ -382,7 +382,7 @@ module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkcustom_filterable_post_gallery"] = self["webpackChunkcustom_filterable_post_gallery"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkcustom_filterable_investments_gallery"] = self["webpackChunkcustom_filterable_investments_gallery"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	}();

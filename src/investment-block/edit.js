@@ -31,11 +31,11 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
+		<div className="" { ...useBlockProps() }>
 			{ __(
-				'Filterable Post Block – hello from the editor!',
+				'Investment Block – hello from the editor!',
 				'cfig'
 			) }
-		</p>
+		</div>
 	);
 }

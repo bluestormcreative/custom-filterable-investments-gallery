@@ -29,7 +29,7 @@ require_once __DIR__ . '/inc/investment-category-custom-taxonomy.php';
 function cfig_custom_filterable_post_gallery_blocks_init() {
 
 	$blocks = [
-		'filterable-post-block',
+		'investment-block',
 		'filterable-gallery-block'
 	];
 
