@@ -1,0 +1,36 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/investment-block/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.investment-block .block-editor-media-placeholder {
+  margin-bottom: 8px;
+}
+.investment-block .block-editor-logo-preview {
+  margin-bottom: 8px;
+}
+.investment-block .block-editor-logo-preview span {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.investment-block .block-editor-logo-preview .logo-content {
+  align-items: center;
+  border: 1px solid #949494;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.investment-block .investment-details .components-base-control__field {
+  align-items: center;
+  display: flex;
+}
+.investment-block .investment-details .components-base-control__field label {
+  margin-bottom: 0;
+  width: 100px;
+}
+.investment-block .investment-details .components-base-control__field .components-text-control__input {
+  width: calc(100% - 100px);
+}
+
+/*# sourceMappingURL=index.css.map*/

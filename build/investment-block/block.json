@@ -22,6 +22,12 @@
     "logoId": {
       "type": "integer"
     },
+    "logoUrl": {
+      "type": "string"
+    },
+    "logoAlt": {
+      "type": "string"
+    },
     "business": {
       "type": "string"
     },
