@@ -22,11 +22,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/investment-block/editor.scss");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editor.scss */ "./src/investment-block/editor.scss");
+
 
 
 
@@ -37,7 +40,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit({
   attributes,
-  setAttributes
+  setAttributes,
+  context
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
     className: "investment-block-card"
@@ -51,16 +55,26 @@ function Edit({
     years,
     type
   } = attributes;
+  const {
+    postType,
+    postId
+  } = context;
+  const [meta, updateMeta] = (0,_wordpress_core_data__WEBPACK_IMPORTED_MODULE_5__.useEntityProp)("postType", postType, "meta", postId);
   const logo = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
     const image = logoId && select("core").getMedia(logoId);
-    const url = (0,lodash__WEBPACK_IMPORTED_MODULE_6__.get)(image, ['sizes', 'investment_logo', 'url']) || (0,lodash__WEBPACK_IMPORTED_MODULE_6__.get)(image, ['media_details', 'sizes', 'full', 'source_url']);
+    const url = (0,lodash__WEBPACK_IMPORTED_MODULE_7__.get)(image, ["sizes", "investment_logo", "url"]) || (0,lodash__WEBPACK_IMPORTED_MODULE_7__.get)(image, ["media_details", "sizes", "full", "source_url"]);
     return {
       imageUrl: url,
       imageId: image?.id,
-      imageAlt: image?.alt_text || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('investment logo', 'cfig')
+      imageAlt: image?.alt_text || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("investment logo", "cfig")
     };
   }, [logoId]);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    updateMeta({
+      ...meta,
+      logoUrl: logo.imageUrl,
+      logoAlt: logo.imageAlt
+    });
     setAttributes({
       logoUrl: logo.imageUrl,
       logoAlt: logo.imageAlt
@@ -75,16 +89,16 @@ function Edit({
   };
   const renderLogoPreview = logo => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "block-editor-logo-preview"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Logo', 'cfig')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Logo", "cfig")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "logo-content"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: logo.imageUrl,
     alt: logo.imageAlt,
     width: 200
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Button, {
     variant: "secondary",
     onClick: handleRemoveImage
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Remove', 'cfig'))));
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Remove", "cfig"))));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, logo && logo.imageUrl ? renderLogoPreview(logo) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.MediaPlaceholder, {
@@ -92,46 +106,64 @@ function Edit({
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Logo", "cfig"),
       instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Upload a logo or select one from the media library.", "cfig")
     },
-    onSelect: image => setAttributes({
-      logoId: image.id
-    }),
+    onSelect: image => {
+      setAttributes({
+        logoId: image.id
+      });
+      updateMeta({
+        ...meta,
+        logoId: image.id
+      });
+    },
     accept: "image/*",
     allowedTypes: ["image"],
     multiple: false,
     value: {
       id: attributes.logoId
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
     className: "investment-details",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Business", "cfig"),
     value: business,
-    onChange: business => setAttributes({
-      business
-    }),
+    onChange: business => {
+      updateMeta({
+        ...meta,
+        business: business
+      });
+    },
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Enter the business description", "cfig")
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
     className: "investment-details",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Sector", "cfig"),
     value: sector,
-    onChange: sector => setAttributes({
-      sector
-    }),
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Enter the sector.", "cfig")
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+    onChange: sector => {
+      updateMeta({
+        ...meta,
+        sector: sector
+      });
+    },
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Enter sector.", "cfig")
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
     className: "investment-details",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Years", "cfig"),
     value: years,
-    onChange: years => setAttributes({
-      years
-    }),
+    onChange: years => {
+      updateMeta({
+        ...meta,
+        years: years
+      });
+    },
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Enter the years of investment.", "cfig")
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
     className: "investment-details",
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Type", "cfig"),
     value: type,
-    onChange: type => setAttributes({
-      type
-    }),
+    onChange: type => {
+      updateMeta({
+        ...meta,
+        type: type
+      });
+    },
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Enter the type of investment.", "cfig")
   }));
 }
@@ -317,6 +349,16 @@ module.exports = window["wp"]["components"];
 
 /***/ }),
 
+/***/ "@wordpress/core-data":
+/*!**********************************!*\
+  !*** external ["wp","coreData"] ***!
+  \**********************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["coreData"];
+
+/***/ }),
+
 /***/ "@wordpress/data":
 /*!******************************!*\
   !*** external ["wp","data"] ***!
@@ -353,7 +395,7 @@ module.exports = window["wp"]["i18n"];
   \*****************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cfig/investment-block","version":"0.1.0","title":"Investment Block","category":"widgets","icon":"smiley","description":"Custom post block for filterable gallery or standalone use.","example":{},"supports":{"html":false},"attributes":{"logoId":{"type":"integer"},"logoUrl":{"type":"string"},"logoAlt":{"type":"string"},"business":{"type":"string"},"sector":{"type":"string"},"years":{"type":"string"},"type":{"type":"string"}},"textdomain":"cfig","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cfig/investment-block","version":"0.1.0","title":"Investment Block","category":"widgets","icon":"smiley","description":"Custom post block for filterable gallery or standalone use.","example":{},"supports":{"html":false},"attributes":{"logoId":{"type":"integer"},"logoUrl":{"type":"string"},"logoAlt":{"type":"string"},"business":{"type":"string"},"sector":{"type":"string"},"years":{"type":"string"},"type":{"type":"string"}},"usesContext":["postId","postType"],"textdomain":"cfig","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

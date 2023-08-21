@@ -2,7 +2,115 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/filterable-gallery-block/style.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************************/
 .wp-block-cfig-custom-filterable-investments-gallery {
-  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+@media (min-width: 680px) {
+  .wp-block-cfig-custom-filterable-investments-gallery {
+    flex-direction: row;
+    max-width: 100% !important;
+  }
+}
+@media (min-width: 1100px) {
+  .wp-block-cfig-custom-filterable-investments-gallery {
+    width: 1100px;
+  }
+}
+.wp-block-cfig-custom-filterable-investments-gallery ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wp-block-cfig-custom-filterable-investments-gallery .filter-bar {
+  padding-bottom: 2rem;
+  width: 100%;
+}
+@media (min-width: 650px) {
+  .wp-block-cfig-custom-filterable-investments-gallery .filter-bar {
+    width: 25%;
+  }
+}
+.wp-block-cfig-custom-filterable-investments-gallery .filter-bar .filter-item {
+  line-height: 1.3rem;
+  padding-bottom: 1rem;
+}
+.wp-block-cfig-custom-filterable-investments-gallery .filter-bar .active {
+  color: #2c7e83;
+}
+.wp-block-cfig-custom-filterable-investments-gallery .gallery-cards {
+  display: grid;
+  gap: 2rem;
+  max-width: 100%;
+  width: 100%;
+}
+@media (min-width: 680px) {
+  .wp-block-cfig-custom-filterable-investments-gallery .gallery-cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    padding: 0 1.5rem;
+    width: 75%;
+  }
+}
+.wp-block-cfig-custom-filterable-investments-gallery .investment-card {
+  animation: fadeIn 0.5s ease;
+  border: 1px solid #949494;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 100%;
+  min-height: 400px;
+  padding: 1rem;
+}
+@media (min-width: 680px) {
+  .wp-block-cfig-custom-filterable-investments-gallery .investment-card {
+    max-width: 220px;
+  }
+}
+.wp-block-cfig-custom-filterable-investments-gallery .investment-card .investment-logo {
+  text-align: center;
+}
+.wp-block-cfig-custom-filterable-investments-gallery .investment-card .investment-logo img {
+  height: auto;
+  max-width: 200px;
+  margin: 0 auto;
+}
+.wp-block-cfig-custom-filterable-investments-gallery .investment-card .investment-detail {
+  align-items: baseline;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  padding: 0.5rem 0;
+}
+.wp-block-cfig-custom-filterable-investments-gallery .investment-card .investment-detail strong {
+  font-size: 0.8rem;
+  width: 100px;
+}
+.wp-block-cfig-custom-filterable-investments-gallery .investment-card .investment-detail span {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  width: calc(100% - 100px);
+}
+@media (min-width: 400px) {
+  .wp-block-cfig-custom-filterable-investments-gallery .investment-card .investment-detail strong {
+    width: 80px;
+  }
+  .wp-block-cfig-custom-filterable-investments-gallery .investment-card .investment-detail span {
+    width: calc(100% - 80px);
+  }
+}
+.wp-block-cfig-custom-filterable-investments-gallery .investment-card li:last-of-type .investment-detail {
+  border-bottom: 0;
+}
+.wp-block-cfig-custom-filterable-investments-gallery .investment-card.hidden {
+  display: none;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=style-index.css.map*/
