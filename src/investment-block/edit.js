@@ -7,7 +7,7 @@ import { get } from 'lodash';
 import './editor.scss';
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps({ className: "investment-block" });
+	const blockProps = useBlockProps({ className: "investment-block-wrapper" });
 	const {logoId, logoUrl, logoAlt, business, sector, years, type } = attributes;
 
 	const logo = useSelect(

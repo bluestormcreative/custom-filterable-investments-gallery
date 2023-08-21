@@ -1,4 +1,4 @@
-.wp-block-cfig-investment-block {
+.investment-block-wrapper {
 	
 	.investment-logo {
 		height: auto;
@@ -33,6 +33,6 @@
 					width: calc(100% - 100px);
 				}
 			}
-		}
-	}
-}
+		} // .investment-detail
+	} // .investment-details ul
+} // .investment-block-wrapper

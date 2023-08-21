@@ -1,4 +1,4 @@
-.investment-block {
+.investment-block-wrapper {
 
 	.block-editor-media-placeholder {
 		margin-bottom: 8px;
@@ -22,7 +22,7 @@
 			justify-content: space-between;
 			padding: 20px;
 		}
-	}
+	} // .block-editor-logo-preview
 
 	.investment-details .components-base-control__field {
 		align-items: center;
@@ -36,5 +36,5 @@
 		.components-text-control__input {
 			width: calc(100% - 100px);
 		}
-	}
-}
+	} // .investment-details .components-base-control__field
+} // .investment-block-wrapper
