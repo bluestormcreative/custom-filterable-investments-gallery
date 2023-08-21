@@ -2,6 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, MediaPlaceholder } from '@wordpress/block-editor';
 import { useSelect } from "@wordpress/data";
 import { TextControl, Button } from "@wordpress/components";
+import { get } from 'lodash';
 import './editor.scss';
 
 export default function Edit({ attributes, setAttributes }) {
@@ -10,19 +11,24 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const logo = useSelect(
 		(select) => {
-			const image = logoId && select("core").getMedia(logoId);
+			const image = logoId && select( "core" ).getMedia( logoId );
+			const url = get( image, [ 'sizes', 'investment_logo', 'url' ] ) ||
+				get( image, [
+						'media_details',
+						'sizes',
+						'thumbnail',
+						'source_url',
+				] );
 			return {
-				imageUrl:
-					image?.media_details?.sizes?.investment_logo?.source_url ||
-					image?.media_details?.sizes?.thumbnail?.source_url,
-				imageId: logoId ? select("core").getMedia(logoId) : null,
+				imageUrl: url,
+				imageId: image || undefined,
 			};
 		},
 		[logoId]
 	);
 
 	const handleRemoveImage = () => {
-		setAttributes({ logoId: null });
+		setAttributes({ logoId: undefined });
 	}
 
 	const renderLogoPreview = (logo) => (
