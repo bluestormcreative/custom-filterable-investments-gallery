@@ -6,7 +6,7 @@ export default function save({attributes}) {
 
 	return (
 		<div {...useBlockProps.save()}>
-			<div className="investment-block-wrapper">
+			<div className="investment-block-card">
 				<img
 					className="investment-logo"
 					src={logoUrl}

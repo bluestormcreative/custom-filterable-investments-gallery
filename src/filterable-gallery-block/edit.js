@@ -30,12 +30,11 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
+	const blockProps = useBlockProps({ className: "filterable-gallery-wrapper" });
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Filterable Post Gallery Block – hello from the editor!',
-				'cfig'
-			) }
-		</p>
+		<div {...blockProps}>
+			<h1>{__("Filterable Investment Gallery Block", "cfig")}</h1>
+		</div>
 	);
 }
