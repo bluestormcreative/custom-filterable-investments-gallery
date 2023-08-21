@@ -68,7 +68,7 @@ function investment_custom_post_type() {
 		'query_var' => true,
 		'menu_position' => 5,
 		'menu_icon' => 'dashicons-money',
-		'supports' => [ 'title', 'editor', 'thumbnail', 'custom-fields', 'revisions' ],
+		'supports' => [ 'title', 'editor', 'custom-fields', 'revisions' ],
 		'show_in_graphql' => false,
 		'template_lock' => 'all',
 		'template' => [
@@ -80,56 +80,5 @@ function investment_custom_post_type() {
 }
 add_action( 'init', 'investment_custom_post_type', 0 );
 
-// Add featured image column to admin lists
-// Set thumbnail size
-add_image_size( 'investment-admin-featured-image', 60, 60, false );
-
-// Filter the columns
-function cfig_add_investment_image_column( $cfig_cols ){
-  $cfig_cols['investment_thumb'] = __( 'Image' );
-  return $cfig_cols;
-}
-add_filter( 'manage_investment_posts_columns', 'cfig_add_investment_image_column', 2 );
-
-// Add featured image thumbnail to the WP Admin table.
-function cfig_investment_thumbnail_column( $cfig_cols, $id ){
-  switch( $cfig_cols ){
-    case 'investment_thumb':
-    if ( function_exists( 'the_post_thumbnail' ) )
-      echo the_post_thumbnail( 'investment-admin-featured-image' );
-    break;
-  }
-}
-add_action( 'manage_investment_posts_custom_column', 'cfig_investment_thumbnail_column', 5, 2 );
-
-// Move the new column to left-most place.
-function cfig_investment_column_order( $cols ) {
-  $n_cols = array();
-  $move = 'investment_thumb';
-  $before = 'title';
-
-  foreach( $cols as $key => $value ) {
-    if ( $key === $before ) {
-      $n_cols[$move] = $move;
-    }
-    $n_cols[$key] = $value;
-  }
-  return $n_cols;
-}
-add_filter( 'manage_investment_posts_columns', 'cfig_investment_column_order' );
-
-// Adjust the column width.
-function cfig_add_admin_styles() {
-	echo '<style>.column-investment_thumb {width: 60px;}</style>';
-}
-add_action( 'admin_head', 'cfig_add_admin_styles' );
-
-// Only allow the investment block type
-function cfig_allow_only_investment_block_type( $post ) {
-	$allowed_blocks = [];
-	if ( $post->post_type === 'investment' ) :
-			$allowed_blocks[] = 'cfig/investment-block';
-	endif;
-	return $allowed_blocks;
-}
-add_filter('allowed_block_types', 'cfig_allow_only_investment_block_type', 10, 2);
+// Set image sizes
+add_image_size( 'investment-logo', 200, 100 );
