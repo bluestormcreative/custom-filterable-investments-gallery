@@ -3,10 +3,10 @@
   "apiVersion": 3,
   "name": "cfig/custom-filterable-investments-gallery",
   "version": "0.1.0",
-  "title": "Filterable Post Gallery",
+  "title": "Filterable Investment Gallery",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Add a filterable gallery of custom posts.",
+  "description": "Add a filterable gallery of investment posts.",
   "example": {},
   "supports": {
     "html": false
@@ -15,5 +15,6 @@
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
 }
