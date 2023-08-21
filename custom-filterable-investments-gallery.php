@@ -32,3 +32,13 @@ function cfig_custom_filterable_investment_gallery_blocks_init() {
 	}
 }
 add_action( 'init', 'cfig_custom_filterable_investment_gallery_blocks_init' );
+
+// Enqueue gallery block frontend js.
+function cfig_enqueue_gallery_js(){
+    $id = get_the_ID();
+    
+		if ( ! is_admin() && has_block( 'cfig/custom-filterable-investments-gallery', $id ) ) {
+      wp_enqueue_script( 'filterable-gallery-script', plugins_url( 'cfig-gallery.js', __FILE__ ), null, null, true);
+  }
+}
+add_action( 'enqueue_block_assets','cfig_enqueue_gallery_js' );
