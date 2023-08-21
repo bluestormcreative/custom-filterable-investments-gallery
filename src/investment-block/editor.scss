@@ -1,9 +1,26 @@
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.investment-block {
 
-.wp-block-create-block-custom-filterable-investments-gallery {
-	border: 1px dotted #f00;
+	.block-editor-media-placeholder {
+		margin-bottom: 8px;
+	}
+
+	.block-editor-logo-preview {
+		margin-bottom: 8px;
+
+		span {
+			display: block;
+			font-size: 12px;
+			font-weight: 500;
+			margin-bottom: 8px;
+			text-transform: uppercase;
+		}
+
+		.logo-content {
+			align-content: center;
+			border: 1px solid #949494;
+			display: flex;
+			justify-content: space-between;
+			padding: 20px;
+		}
+	}
 }
