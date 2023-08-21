@@ -81,4 +81,4 @@ function investment_custom_post_type() {
 add_action( 'init', 'investment_custom_post_type', 0 );
 
 // Set image sizes
-add_image_size( 'investment-logo', 200, 100 );
+add_image_size( 'investment_logo', 200, 100 );
