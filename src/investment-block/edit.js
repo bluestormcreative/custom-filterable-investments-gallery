@@ -39,11 +39,11 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const renderLogoPreview = (logo) => (
 		<div className="block-editor-logo-preview">
-			<span>Logo</span>
+			<span>{ __( 'Logo', 'cfig' ) }</span>
 			<div className="logo-content">
 				<img src={logo.imageUrl} alt={logo.imageAlt} width={200} />
 				<Button variant="secondary" onClick={handleRemoveImage}>
-					Remove
+					{ __( 'Remove', 'cfig' ) }
 				</Button>
 			</div>
 		</div>
@@ -56,13 +56,13 @@ export default function Edit({ attributes, setAttributes }) {
 			) : (
 				<MediaPlaceholder
 					labels={{
-						title: __("Logo", "cfig"),
+						title: __( "Logo", "cfig" ),
 						instructions: __(
 							"Upload a logo or select one from the media library.",
 							"cfig"
 						),
 					}}
-					onSelect={(image) => setAttributes({ logoId: image.id })}
+					onSelect={ (image) => setAttributes( { logoId: image.id } ) }
 					accept="image/*"
 					allowedTypes={["image"]}
 					multiple={false}
@@ -73,31 +73,31 @@ export default function Edit({ attributes, setAttributes }) {
 			)}
 			<TextControl
 				className="investment-details"
-				label={__("Business", "cfig")}
+				label={ __( "Business", "cfig" ) }
 				value={business}
-				onChange={(business) => setAttributes({ business })}
-				placeholder={__("Enter the business description", "cfig")}
+				onChange={ (business) => setAttributes( { business } ) }
+				placeholder={ __( "Enter the business description", "cfig" ) }
 			/>
 			<TextControl
 				className="investment-details"
-				label={__("Sector", "cfig")}
+				label={ __( "Sector", "cfig") }
 				value={sector}
-				onChange={(sector) => setAttributes({ sector })}
+				onChange={ (sector) => setAttributes( { sector } ) }
 				placeholder={__("Enter the sector.", "cfig")}
 			/>
 			<TextControl
 				className="investment-details"
-				label={__("Years", "cfig")}
+				label={ __( "Years", "cfig" ) }
 				value={years}
-				onChange={(years) => setAttributes({ years })}
+				onChange={ (years) => setAttributes( { years } ) }
 				placeholder={__("Enter the years of investment.", "cfig")}
 			/>
 			<TextControl
 				className="investment-details"
-				label={__("Type", "cfig")}
+				label={ __( "Type", "cfig" ) }
 				value={type}
-				onChange={(type) => setAttributes({ type })}
-				placeholder={__("Enter the type of investment.", "cfig")}
+				onChange={ (type) => setAttributes( { type } ) }
+				placeholder={ __( "Enter the type of investment.", "cfig" ) }
 			/>
 		</div>
 	);
