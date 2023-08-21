@@ -1,3 +1,47 @@
 .wp-block-cfig-custom-filterable-investments-gallery {
-	background-color: #efefef;
-}
+	display: flex;
+	flex-direction: column;
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.filter-bar {
+		width: 100%;
+
+		@media (min-width: 400px) {
+			width: 25%;
+		}
+	}
+
+	.gallery-cards {
+		padding: 0 1.5rem;
+		width: 100%;
+
+		@media (min-width: 400px) {
+			width: 75%;
+		}
+	}
+
+	.investment-card {
+		border: 1px solid #949494;
+		padding: 0.5rem;
+		width: 100%;
+
+		img {
+			height: auto;
+			max-width: 100%;
+			width: 100%;
+		}
+
+		@media (min-width: 400px) {
+			width: 25%;
+		}
+	} // .investment-card
+
+	@media (min-width: 400px) {
+		flex-direction: row;
+		min-width: 1100px;
+	}
+} // .wp-block-cfig-custom-filterable-investments-gallery

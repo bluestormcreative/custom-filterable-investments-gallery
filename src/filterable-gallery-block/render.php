@@ -10,16 +10,71 @@
 	$args = array(
 		'post_type' => 'investment',
 	);
-	$investments_query = new WP_Query($args);
+	$investments_query = new WP_Query( $args );
+
+// Get investment category terms.
+$terms = get_terms( array(
+    'taxonomy'   => 'investment-category',
+		'hide_empty' => false,
+) );
 ?>
 <div <?php echo get_block_wrapper_attributes(); ?>>
-	<?php if ( $investments_query->have_posts() ) : ?>
+	<div class="filter-bar">
+		<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
+			<ul class="filter-items">
+			<?php foreach ( $terms as $term ) {
+				echo '<li>' . $term->name . '</li>';
+				} ?>
+			</ul>
+		<?php endif; ?>
+	</div>
+	<div class="gallery-cards">
+		<?php if ( $investments_query->have_posts() ) : ?>
+			<?php while ( $investments_query->have_posts() ) : $investments_query->the_post();
+						$id        = get_the_ID();
+						$logoUrl   = get_post_meta( $id, 'logoUrl', true );
+						$logoAlt   = get_post_meta( $id, 'logoAlt', true );
+						$business  = get_post_meta( $id, 'business', true );
+						$sector    = get_post_meta( $id, 'sector', true );
+						$years     = get_post_meta( $id, 'years', true );
+						$type      = get_post_meta( $id, 'type', true );
+			?>
+				<div class="investment-card">
+					<div class="investment-logo">
+						<img src="<?php echo esc_url( $logoUrl ); ?>" alt="<?php echo esc_html( $alt ) ?>" />
+					</div>
+					<div class="investment-details">
+						<ul>
+							<li>
+								<div className="investment-detail">
+									<strong><?php esc_html_e( 'Business: ', 'cfig' ); ?></strong>
+									<span><?php echo esc_html( $business ); ?></span>
+								</div>
+							</li>
+							<li>
+								<div className="investment-detail">
+									<strong><?php esc_html_e( 'Sector: ', 'cfig' ); ?></strong>
+									<span><?php echo esc_html( $sector ); ?></span>
+								</div>
+							</li>
+							<li>
+								<div className="investment-detail">
+									<strong><?php esc_html_e( 'Years: ', 'cfig' ); ?></strong>
+									<span><?php echo esc_html( $years ); ?></span>
+								</div>
+							</li>
+							<li>
+								<div className="investment-detail">
+									<strong><?php esc_html_e( 'Type: ', 'cfig' ); ?></strong>
+									<span><?php echo esc_html( $type ); ?></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			<?php endwhile; ?>
+			<?php wp_reset_postdata(); ?>
 
-		<?php while ( $investments_query->have_posts() ) : $investments_query->the_post(); ?>
-				post
-		<?php endwhile; ?>
-
-		<?php wp_reset_postdata(); ?>
-
-	<?php endif; ?>
+		<?php endif; ?>
+	</div>
 </div>
