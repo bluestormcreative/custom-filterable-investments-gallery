@@ -49,25 +49,25 @@ $terms = get_terms( array(
 					<div class="investment-details">
 						<ul>
 							<li>
-								<div className="investment-detail">
+								<div class="investment-detail">
 									<strong><?php esc_html_e( 'Business: ', 'cfig' ); ?></strong>
 									<span><?php echo esc_html( $business ); ?></span>
 								</div>
 							</li>
 							<li>
-								<div className="investment-detail">
+								<div class="investment-detail">
 									<strong><?php esc_html_e( 'Sector: ', 'cfig' ); ?></strong>
 									<span><?php echo esc_html( $sector ); ?></span>
 								</div>
 							</li>
 							<li>
-								<div className="investment-detail">
+								<div class="investment-detail">
 									<strong><?php esc_html_e( 'Years: ', 'cfig' ); ?></strong>
 									<span><?php echo esc_html( $years ); ?></span>
 								</div>
 							</li>
 							<li>
-								<div className="investment-detail">
+								<div class="investment-detail">
 									<strong><?php esc_html_e( 'Type: ', 'cfig' ); ?></strong>
 									<span><?php echo esc_html( $type ); ?></span>
 								</div>
