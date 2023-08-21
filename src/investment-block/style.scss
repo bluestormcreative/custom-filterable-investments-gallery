@@ -1,12 +1,38 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.wp-block-cfig-investment-block {
+	
+	.investment-logo {
+		height: auto;
+		width: 200px;
+	}
 
-.wp-block-create-block-custom-filterable-investments-gallery {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	.investment-details ul {
+		list-style: none;
+		padding: 0;
+
+		.investment-detail {
+			align-items: baseline;
+			display: flex;
+			flex-direction: column;
+			padding-bottom: 0.5rem;
+
+			strong {
+				font-size: 1rem;
+				text-transform: uppercase;
+				width: 100px;
+			}
+
+			span {
+				display: inline-block;
+				width: 100%;
+			}
+
+			@media (min-width: 400px) {
+				flex-direction: row;
+
+				span {
+					width: calc(100% - 100px);
+				}
+			}
+		}
+	}
 }

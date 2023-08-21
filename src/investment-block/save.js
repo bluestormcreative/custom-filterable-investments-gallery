@@ -1,11 +1,40 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function save({attributes}) {
-	const {logoId} = attributes;
-	
+	const { logoUrl, logoAlt, business, sector, years, type } =
+		attributes;
+
 	return (
-		<p { ...useBlockProps.save() }>
-			{logoId}
-		</p>
+		<div {...useBlockProps.save()}>
+			<img className="investment-logo" src={logoUrl} alt={logoAlt} width={200} />
+			<div className="investment-details">
+				<ul>
+					<li>
+						<div className="investment-detail">
+							<strong>Business: </strong>
+							<span>{business}</span>
+						</div>
+					</li>
+					<li>
+						<div className="investment-detail">
+							<strong>Sector: </strong>
+							<span>{sector}</span>
+						</div>
+					</li>
+					<li>
+						<div className="investment-detail">
+							<strong>Years: </strong>
+							<span>{years}</span>
+						</div>
+					</li>
+					<li>
+						<div className="investment-detail">
+							<strong>Type: </strong>
+							<span>{type}</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 	);
 }
