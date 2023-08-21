@@ -19,6 +19,9 @@
             "remove": true
         }
     },
+		"logoId": {
+			"type": "integer"
+		},
 		"business": {
 			"type": "string"
 		},
