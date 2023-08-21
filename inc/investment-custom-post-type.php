@@ -82,3 +82,42 @@ add_action( 'init', 'investment_custom_post_type', 0 );
 
 // Set image sizes
 add_image_size( 'investment_logo', 200, 100 );
+
+
+// Register post meta for our block attributes.
+function cfig_register_investment_meta() {
+
+	$meta_items = [
+		'logoUrl',
+		'logoAlt',
+		'business',
+		'sector',
+		'years',
+		'type',
+	];
+
+	foreach ($meta_items as $item) {
+		register_post_meta(
+		'investment',
+		$item,
+		array(
+			'show_in_rest'       => true,
+			'single'             => true,
+			'type'               => 'string',
+			'sanitize_callback'  => 'wp_kses_post',
+			)
+		);
+	}
+
+	register_post_meta(
+		'investment',
+		'logoID',
+		array(
+			'show_in_rest'       => true,
+			'single'             => true,
+			'type'               => 'integer',
+			'sanitize_callback'  => 'wp_kses_post',
+			)
+		);
+}
+add_action( 'init', 'cfig_register_investment_meta' );
