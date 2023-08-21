@@ -7,7 +7,7 @@ import './editor.scss';
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({ className: "investment-block" });
-	const {logoId, business, sector, years, type } = attributes;
+	const {logoId, logoUrl, logoAlt, business, sector, years, type } = attributes;
 
 	const logo = useSelect(
 		(select) => {
@@ -16,26 +16,27 @@ export default function Edit({ attributes, setAttributes }) {
 				get( image, [
 						'media_details',
 						'sizes',
-						'thumbnail',
+						'full',
 						'source_url',
 				] );
 			return {
 				imageUrl: url,
-				imageId: image || undefined,
+				imageId: image?.id,
+				imageAlt: image?.alt_text, 
 			};
 		},
 		[logoId]
 	);
 
 	const handleRemoveImage = () => {
-		setAttributes({ logoId: undefined });
+		setAttributes({ logoId: undefined, logoUrl: undefined, logoAlt: undefined });
 	}
 
 	const renderLogoPreview = (logo) => (
 		<div className="block-editor-logo-preview">
 			<span>Logo</span>
 			<div className="logo-content">
-				<img src={logo.imageUrl} />
+				<img src={logo.imageUrl} alt={logo.imageAlt} width={200} />
 				<Button variant="secondary" onClick={handleRemoveImage}>
 					Remove
 				</Button>
