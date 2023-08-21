@@ -1,4 +1,9 @@
-.filterable-gallery-wrapper {
+.wp-block.filterable-gallery-wrapper {
+	background-color: #f0f0f0;
 	border: 1px solid #949494;
 	padding: 1rem;
+
+	h1 {
+		font-size: 1.2rem;
+	}
 }
