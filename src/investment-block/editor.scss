@@ -1,17 +1,17 @@
 .investment-block-card {
 
 	.block-editor-media-placeholder {
-		margin-bottom: 8px;
+		margin-bottom: 0.5rem;
 	}
 
 	.block-editor-logo-preview {
-		margin-bottom: 8px;
+		margin-bottom: 0.5rem;
 
 		span {
 			display: block;
-			font-size: 12px;
+			font-size: 0.8rem;
 			font-weight: 500;
-			margin-bottom: 8px;
+			margin-bottom: 0.5rem;
 			text-transform: uppercase;
 		}
 
@@ -20,7 +20,7 @@
 			border: 1px solid #949494;
 			display: flex;
 			justify-content: space-between;
-			padding: 20px;
+			padding: 1.5rem;
 		}
 	} // .block-editor-logo-preview
 
