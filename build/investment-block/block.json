@@ -11,6 +11,30 @@
   "supports": {
     "html": false
   },
+  "attributes": {
+    "lock": {
+      "type": "object",
+      "default": {
+        "move": true,
+        "remove": true
+      }
+    },
+    "logoId": {
+      "type": "integer"
+    },
+    "business": {
+      "type": "string"
+    },
+    "sector": {
+      "type": "string"
+    },
+    "years": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
   "textdomain": "cfig",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
