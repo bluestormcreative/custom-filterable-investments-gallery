@@ -12,9 +12,11 @@ export default function Edit({ attributes, setAttributes }) {
 		(select) => {
 			const image = logoId && select("core").getMedia(logoId);
 			return {
-				imageUrl: image?.media_details?.sizes?.investment_logo?.source_url,
+				imageUrl:
+					image?.media_details?.sizes?.investment_logo?.source_url ||
+					image?.media_details?.sizes?.thumbnail?.source_url,
 				imageId: logoId ? select("core").getMedia(logoId) : null,
-			}
+			};
 		},
 		[logoId]
 	);
@@ -58,24 +60,28 @@ export default function Edit({ attributes, setAttributes }) {
 				/>
 			)}
 			<TextControl
+				className="investment-details"
 				label={__("Business", "cfig")}
 				value={business}
 				onChange={(business) => setAttributes({ business })}
 				placeholder={__("Enter the business description", "cfig")}
 			/>
 			<TextControl
+				className="investment-details"
 				label={__("Sector", "cfig")}
 				value={sector}
 				onChange={(sector) => setAttributes({ sector })}
 				placeholder={__("Enter the sector.", "cfig")}
 			/>
 			<TextControl
+				className="investment-details"
 				label={__("Years", "cfig")}
 				value={years}
 				onChange={(years) => setAttributes({ years })}
 				placeholder={__("Enter the years of investment.", "cfig")}
 			/>
 			<TextControl
+				className="investment-details"
 				label={__("Type", "cfig")}
 				value={type}
 				onChange={(type) => setAttributes({ type })}

@@ -16,11 +16,25 @@
 		}
 
 		.logo-content {
-			align-content: center;
+			align-items: center;
 			border: 1px solid #949494;
 			display: flex;
 			justify-content: space-between;
 			padding: 20px;
+		}
+	}
+
+	.investment-details .components-base-control__field {
+		align-items: center;
+		display: flex;
+
+		label {
+			margin-bottom: 0;
+			width: 100px;
+		}
+
+		.components-text-control__input {
+			width: calc(100% - 100px);
 		}
 	}
 }
