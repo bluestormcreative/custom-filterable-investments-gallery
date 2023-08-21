@@ -12,13 +12,6 @@
 		"html": false
 	},
 	"attributes": {
-		"lock": {
-        "type": "object",
-        "default": {
-            "move": true,
-            "remove": true
-        }
-    },
 		"logoId": {
 			"type": "integer"
 		},
