@@ -2,20 +2,36 @@
 	display: flex;
 	flex-direction: column;
 
+	@media (min-width: 400px) {
+		flex-direction: row;
+		min-width: 1100px;
+	}
+
+	// Reset block lists.
 	ul {
 		list-style: none;
 		padding: 0;
 	}
 
+	// Term filter container.
 	.filter-bar {
 		width: 100%;
 
 		@media (min-width: 400px) {
 			width: 25%;
 		}
+
+		.active {
+			color: #2c7e83;
+		}
 	}
 
+	// Card container
 	.gallery-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		grid-auto-rows: minmax(200px, auto);
+		grid-gap: 2rem;
 		padding: 0 1.5rem;
 		width: 100%;
 
@@ -24,10 +40,15 @@
 		}
 	}
 
+	// Single card.
 	.investment-card {
 		border: 1px solid #949494;
+		display: grid;
 		padding: 0.5rem;
+		max-width: 100%;
 		width: 100%;
+
+		animation: fadeIn 0.5s ease;
 
 		img {
 			height: auto;
@@ -36,12 +57,20 @@
 		}
 
 		@media (min-width: 400px) {
-			width: 25%;
+			width: 100%;
+		}
+
+		&.hidden {
+			display: none;
+		}
+
+		@keyframes fadeIn {
+			0%{
+				opacity: 0;
+			}
+			100%{
+				opacity: 1;
+			}
 		}
 	} // .investment-card
-
-	@media (min-width: 400px) {
-		flex-direction: row;
-		min-width: 1100px;
-	}
 } // .wp-block-cfig-custom-filterable-investments-gallery
