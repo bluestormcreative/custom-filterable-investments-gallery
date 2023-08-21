@@ -12,7 +12,7 @@
 	);
 	$investments_query = new WP_Query( $args );
 
-// Get investment category terms.
+// Get investment category terms for filter bar.
 $terms = get_terms( array(
     'taxonomy'   => 'investment-category',
 		'hide_empty' => false,
@@ -23,7 +23,7 @@ $terms = get_terms( array(
 		<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
 			<ul class="filter-items">
 			<?php foreach ( $terms as $term ) {
-				echo '<li>' . $term->name . '</li>';
+				echo '<li class="filter-item" data-filter="' . $term->slug . '">' . $term->name . '</li>';
 				} ?>
 			</ul>
 		<?php endif; ?>
@@ -31,15 +31,18 @@ $terms = get_terms( array(
 	<div class="gallery-cards">
 		<?php if ( $investments_query->have_posts() ) : ?>
 			<?php while ( $investments_query->have_posts() ) : $investments_query->the_post();
-						$id        = get_the_ID();
-						$logoUrl   = get_post_meta( $id, 'logoUrl', true );
-						$logoAlt   = get_post_meta( $id, 'logoAlt', true );
-						$business  = get_post_meta( $id, 'business', true );
-						$sector    = get_post_meta( $id, 'sector', true );
-						$years     = get_post_meta( $id, 'years', true );
-						$type      = get_post_meta( $id, 'type', true );
+				$id					= get_the_ID();
+				$terms			= get_the_terms( $id, 'investment-category' );
+				$slugs 			= array_column($terms, 'slug');
+				$terms_data = implode(" ", $slugs);
+				$logoUrl  	= get_post_meta( $id, 'logoUrl', true );
+				$logoAlt  	= get_post_meta( $id, 'logoAlt', true );
+				$business 	= get_post_meta( $id, 'business', true );
+				$sector   	= get_post_meta( $id, 'sector', true );
+				$years    	= get_post_meta( $id, 'years', true );
+				$type     	= get_post_meta( $id, 'type', true );
 			?>
-				<div class="investment-card">
+				<div class="investment-card" data-investment-categories="<?php echo esc_html( $terms_data ); ?>">
 					<div class="investment-logo">
 						<img src="<?php echo esc_url( $logoUrl ); ?>" alt="<?php echo esc_html( $alt ) ?>" />
 					</div>
