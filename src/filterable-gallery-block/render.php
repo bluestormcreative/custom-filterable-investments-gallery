@@ -9,6 +9,7 @@
 // Query investment posts.
 	$args = array(
 		'post_type' => 'investment',
+		'posts_per_page' => -1,
 	);
 	$investments_query = new WP_Query( $args );
 
@@ -16,7 +17,7 @@
 $terms = get_terms( array(
     'taxonomy'   => 'investment-category',
 		'orderby'  => 'count',
-		'order'    => 'DESC',
+		'order'    => 'ASC',
 		'hide_empty' => false,
 ) );
 ?>
