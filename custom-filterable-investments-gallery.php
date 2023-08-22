@@ -19,26 +19,30 @@ require_once __DIR__ . '/inc/investment-custom-post-type.php';
 // Investment Category Taxonomy.
 require_once __DIR__ . '/inc/investment-category-custom-taxonomy.php';
 
-// Register blocks.
+/**
+ * Register blocks.
+ */
 function cfig_custom_filterable_investment_gallery_blocks_init() {
 
-	$blocks = [
+	$blocks = array(
 		'investment-block',
 		'filterable-gallery-block',
-	];
+	);
 
-	foreach ($blocks as $block) {
+	foreach ( $blocks as $block ) {
 		register_block_type( __DIR__ . "/build/{$block}" );
 	}
 }
 add_action( 'init', 'cfig_custom_filterable_investment_gallery_blocks_init' );
 
-// Enqueue gallery block frontend js.
-function cfig_enqueue_gallery_js(){
-    $id = get_the_ID();
-    
-		if ( ! is_admin() && has_block( 'cfig/custom-filterable-investments-gallery', $id ) ) {
-      wp_enqueue_script( 'filterable-gallery-script', plugins_url( 'cfig-gallery.js', __FILE__ ), null, null, true);
-  }
+/**
+ * Enqueue gallery block frontend js.
+ */
+function cfig_enqueue_gallery_js() {
+	$id = get_the_ID();
+
+	if ( ! is_admin() && has_block( 'cfig/custom-filterable-investments-gallery', $id ) ) {
+		wp_enqueue_script( 'filterable-gallery-script', plugins_url( 'cfig-gallery.js', __FILE__ ), null, null, true );
+	}
 }
-add_action( 'enqueue_block_assets','cfig_enqueue_gallery_js' );
+add_action( 'enqueue_block_assets', 'cfig_enqueue_gallery_js' );
