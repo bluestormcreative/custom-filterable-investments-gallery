@@ -7,12 +7,13 @@ export default function save({attributes}) {
 	return (
 		<div {...useBlockProps.save()}>
 			<div className="investment-block-card">
-				<img
-					className="investment-logo"
-					src={logoUrl}
-					alt={logoAlt}
-					width={200}
-				/>
+				<div className="investment-logo">
+					<img
+						src={logoUrl}
+						alt={logoAlt}
+						width={200}
+					/>
+				</div>
 				<div className="investment-details">
 					<ul>
 						<li>
