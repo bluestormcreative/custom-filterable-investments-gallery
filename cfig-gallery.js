@@ -35,7 +35,7 @@ function filterCards(filterValue) {
  */
 function setActiveFilter(targetFilterValue) {
   const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
-  if (width > 680) {
+  if (width > 1040) {
     // Deactivate existing active filter-item
     filterList.querySelector(".active").classList.remove("active");
     // Set new active filter-item
@@ -76,7 +76,7 @@ filterSelect.addEventListener( "change", ( event ) => {
  */ 
 window.onload = () => {
   const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
-  if (width > 680) {
+  if (width > 1040) {
     const firstFilter = filterList.querySelector(".filter-item");
     firstFilter.classList.add("active");
     activeFilter = firstFilter.getAttribute("data-filter");
