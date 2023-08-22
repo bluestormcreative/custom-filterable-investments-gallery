@@ -16,6 +16,8 @@ The Filterable Investments Gallery block displays a filterable grid of all Inves
 
 The Investment block is a standalone block that can be used in a page or post to showcase investment details. It is not tied to any Investment custom post.
 
+Demo at: https://wordpress-126197-3819552.cloudwaysapps.com/
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/custom-filterable-investments-gallery` directory, or install the plugin through the WordPress plugins screen directly.
