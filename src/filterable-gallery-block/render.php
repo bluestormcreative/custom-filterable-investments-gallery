@@ -91,7 +91,7 @@
 							<li>
 								<div class="investment-detail">
 									<strong><?php esc_html_e( 'Type: ', 'cfig' ); ?></strong>
-									<span><?php echo esc_html( $type ); ?></span>
+									<span><?php echo esc_html( $invest_type ); ?></span>
 								</div>
 							</li>
 						</ul>
