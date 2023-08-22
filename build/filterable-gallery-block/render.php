@@ -23,11 +23,19 @@ $terms = get_terms( array(
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<div class="filter-bar">
 		<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
-			<ul class="filter-items">
+			<ul class="filter-items-list">
 			<?php foreach ( $terms as $term ) {
 				echo '<li class="filter-item" data-filter="' . $term->slug . '">' . $term->name . '</li>';
 				} ?>
 			</ul>
+			<div class="filter-items-select select-wrapper">
+				<select>
+					<?php foreach ( $terms as $term ) {
+						echo '<option value="' . $term->slug . '">' . $term->name . '</option>';
+					} ?>
+				</select>
+			</div>
+
 		<?php endif; ?>
 	</div>
 	<div class="gallery-cards">
