@@ -1,16 +1,13 @@
 /**
  * Filterable investment gallery block
  */
-const filterContainer = document.querySelector(".filter-items");
+const filterList = document.querySelector(".filter-items-list")
+const filterSelect = document.querySelector(".filter-items-select select");
 const investments = document.querySelectorAll(".investment-card");
+let activeFilter; // Really simple state managment.
 
-// Activate first filter on load.
-const firstFilter = filterContainer.querySelector(".filter-item");
-firstFilter.classList.add( "active" );
-const filterValue = firstFilter.getAttribute("data-filter");
-
+// Show or hide investments based on active filter item
 function filterCards(filterValue) {
-	// Show or hide investments based on active filter item.
 	[...investments].forEach((card) => {
 		if (filterValue === "") {
 			card.classList.remove("hidden");
@@ -25,18 +22,53 @@ function filterCards(filterValue) {
 	});
 }
 
-// Listen for clicks on the filter bar. 
-filterContainer.addEventListener( "click", ( event ) => {		
-  // Deactivate existing active 'filter-item'
-  filterContainer.querySelector( ".active" ).classList.remove( "active" );
+// Set active filter in list or select option.
+function setActiveFilter(targetFilterValue) {
+  const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+  if (width > 680) {
+    // Deactivate existing active filter-item
+    filterList.querySelector(".active").classList.remove("active");
+    // Set new active filter-item
+    const newActive = filterList.querySelector(`[data-filter="${targetFilterValue}"`);
+    newActive.classList.add("active");
+  } else {
+    filterSelect.value = targetFilterValue;
+  }
+}
 
-  // Activate new 'filter-item'
-  event.target.classList.add( "active" );
-
+// Listen for clicks on the large view filter bar. 
+filterList.addEventListener( "click", ( event ) => {
   // Get the target filter category.
   const filterValue = event.target.getAttribute( "data-filter" );
-
-  filterCards(filterValue);
+  activeFilter = filterValue;
+  setActiveFilter(activeFilter);
+  filterCards(activeFilter);
 });
 
-filterCards(filterValue);
+// Listen for change on the small view filter select. 
+filterSelect.addEventListener( "change", ( event ) => {	
+  // Get the target filter category.
+  const filterValue = event.target.value;
+  activeFilter = filterValue;
+	setActiveFilter(activeFilter);
+	filterCards(activeFilter);
+});
+
+// Activate first filter on load.
+window.onload = () => {
+  const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+  if (width > 680) {
+    const firstFilter = filterList.querySelector(".filter-item");
+    firstFilter.classList.add("active");
+    activeFilter = firstFilter.getAttribute("data-filter");
+  } else {
+    const firstFilter = filterSelect.querySelector("option");
+    filterSelect.value = firstFilter.value;
+    activeFilter = firstFilter.value;
+  }
+  filterCards(activeFilter);
+}
+
+window.onresize = () => {
+  setActiveFilter(activeFilter);
+}
