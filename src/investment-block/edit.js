@@ -7,6 +7,13 @@ import { TextControl, Button } from "@wordpress/components";
 import { get } from 'lodash';
 import './editor.scss';
 
+/**
+ * Investment block editor function.
+ *
+ * @param {object} attributes pass native attributes.
+ * @param {function} setAttributes native attributes setter.
+ * @param {object} context properties from parent.
+ */
 export default function Edit({ attributes, setAttributes, context }) {
 	const blockProps = useBlockProps({ className: "investment-block-card" });
 	const { logoId, logoUrl, logoAlt, business, sector, years, type } =

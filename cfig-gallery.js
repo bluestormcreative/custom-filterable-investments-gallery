@@ -1,12 +1,18 @@
 /**
  * Filterable investment gallery block
+ *
+ * @package cfig
  */
 const filterList = document.querySelector(".filter-items-list")
 const filterSelect = document.querySelector(".filter-items-select select");
 const investments = document.querySelectorAll(".investment-card");
 let activeFilter; // Really simple state managment.
 
-// Show or hide investments based on active filter item
+/**
+ * Show or hide investments based on active filter item
+ *
+ * @param {string} filterValue Active filter value.
+ */
 function filterCards(filterValue) {
 	[...investments].forEach((card) => {
 		if (filterValue === "") {
@@ -22,7 +28,11 @@ function filterCards(filterValue) {
 	});
 }
 
-// Set active filter in list or select option.
+/**
+ * Set active filter in list or select option.
+ *
+ * @param {string} targetFilterValue Filter value to set as active.
+ */
 function setActiveFilter(targetFilterValue) {
   const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
   if (width > 680) {
@@ -36,7 +46,10 @@ function setActiveFilter(targetFilterValue) {
   }
 }
 
-// Listen for clicks on the large view filter bar. 
+/**
+ * Listen for clicks on the large view filter bar.
+ *
+ */
 filterList.addEventListener( "click", ( event ) => {
   // Get the target filter category.
   const filterValue = event.target.getAttribute( "data-filter" );
@@ -45,7 +58,10 @@ filterList.addEventListener( "click", ( event ) => {
   filterCards(activeFilter);
 });
 
-// Listen for change on the small view filter select. 
+/**
+ * Listen for change on the small view filter select.
+ *
+ */ 
 filterSelect.addEventListener( "change", ( event ) => {	
   // Get the target filter category.
   const filterValue = event.target.value;
@@ -54,7 +70,10 @@ filterSelect.addEventListener( "change", ( event ) => {
 	filterCards(activeFilter);
 });
 
-// Activate first filter on load.
+/**
+ * Activate first filter on load.
+ *
+ */ 
 window.onload = () => {
   const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
   if (width > 680) {
@@ -69,6 +88,10 @@ window.onload = () => {
   filterCards(activeFilter);
 }
 
+/**
+ * Persist active filter on window resize.
+ *
+ */ 
 window.onresize = () => {
   setActiveFilter(activeFilter);
 }

@@ -1,5 +1,10 @@
 import { useBlockProps } from '@wordpress/block-editor';
 
+/**
+ * Investment block save function.
+ *
+ * @param {Object} attributes pass native attributes.
+ */
 export default function save({attributes}) {
 	const { logoUrl, logoAlt, business, sector, years, type } =
 		attributes;

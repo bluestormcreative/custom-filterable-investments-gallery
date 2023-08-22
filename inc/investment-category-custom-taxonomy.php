@@ -1,10 +1,9 @@
 <?php
 /**
- * Custom Filterable Investments Gallery: Investment custom taxonomy registration
+ * Custom Filterable Investments Gallery: Investment category taxonomy registration
  *
  * @package cfig
  */
-
 
 // Register Custom Investment Category Taxonomy
 function investment_category_custom_taxonomy() {

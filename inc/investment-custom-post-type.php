@@ -5,7 +5,6 @@
  * @package cfig
  */
 
-
 // Register Custom Investment Post Type
 function investment_custom_post_type() {
 

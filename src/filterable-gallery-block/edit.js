@@ -3,6 +3,10 @@ import { useBlockProps } from '@wordpress/block-editor';
 import { Button } from "@wordpress/components";
 import './editor.scss';
 
+/**
+ * Filterable investment gallery block editor function.
+ *
+ */
 export default function Edit() {
 	const blockProps = useBlockProps({ className: "filterable-gallery-wrapper" });
 

@@ -26,6 +26,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+/**
+ * Filterable investment gallery block editor function.
+ *
+ */
 function Edit() {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: "filterable-gallery-wrapper"
