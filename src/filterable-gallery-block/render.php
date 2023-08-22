@@ -23,7 +23,7 @@ $terms = get_terms( array(
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<div class="filter-bar">
 		<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
-			<ul class="filter-items-list" role="listbox" tabindex="0">
+			<ul class="filter-items-list" role="listbox" title="<?php esc_html('Filter by investment category', 'cfig') ?>" tabindex="0">
 			<?php foreach ( $terms as $term ) {
 				echo '<li class="filter-item" role="option" data-filter="' . $term->slug . '">' . $term->name . '</li>';
 				} ?>
@@ -54,7 +54,7 @@ $terms = get_terms( array(
 			?>
 				<div class="investment-card" data-investment-categories="<?php echo esc_html( $terms_data ); ?>">
 					<div class="investment-logo">
-						<img src="<?php echo esc_url( $logoUrl ); ?>" alt="<?php echo esc_html( $alt ) ?>" />
+						<img src="<?php echo esc_url( $logoUrl ); ?>" alt="<?php echo esc_html( $logoAlt ) ?>" />
 					</div>
 					<div class="investment-details">
 						<ul>
