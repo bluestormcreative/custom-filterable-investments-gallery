@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Investment Block",
   "category": "widgets",
-  "icon": "list-view",
+  "icon": "smiley",
   "description": "Custom post block for filterable gallery or standalone use.",
   "example": {},
   "supports": {
