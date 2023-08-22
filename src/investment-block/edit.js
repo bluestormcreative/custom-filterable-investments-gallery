@@ -46,6 +46,12 @@ export default function Edit({ attributes, setAttributes, context }) {
 			logoUrl: undefined,
 			logoAlt: undefined,
 		});
+		updateMeta({
+			...meta,
+			logoId: undefined,
+			logoUrl: undefined,
+			logoAlt: undefined,
+		});
 	};
 
 	const renderLogoPreview = (logo) => (
@@ -90,6 +96,7 @@ export default function Edit({ attributes, setAttributes, context }) {
 				label={__("Business", "cfig")}
 				value={business}
 				onChange={(business) => {
+					setAttributes({ business });
 					updateMeta( { ...meta, business: business } );
 				}}
 				placeholder={__("Enter the business description", "cfig")}
@@ -99,6 +106,7 @@ export default function Edit({ attributes, setAttributes, context }) {
 				label={__("Sector", "cfig")}
 				value={sector}
 				onChange={(sector) => {
+					setAttributes({ sector });
 					updateMeta({ ...meta, sector: sector });
 				}}
 				placeholder={__("Enter sector.", "cfig")}
@@ -108,6 +116,7 @@ export default function Edit({ attributes, setAttributes, context }) {
 				label={__("Years", "cfig")}
 				value={years}
 				onChange={(years) => {
+					setAttributes({ years });
 					updateMeta({ ...meta, years: years });
 				}}
 				placeholder={__("Enter the years of investment.", "cfig")}
@@ -117,6 +126,7 @@ export default function Edit({ attributes, setAttributes, context }) {
 				label={__("Type", "cfig")}
 				value={type}
 				onChange={(type) => {
+					setAttributes({ type });
 					updateMeta({ ...meta, type: type });
 				}}
 				placeholder={__("Enter the type of investment.", "cfig")}
