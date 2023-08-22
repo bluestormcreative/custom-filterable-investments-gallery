@@ -1,1 +1,36 @@
-.investment-block-card .block-editor-logo-preview,.investment-block-card .block-editor-media-placeholder{margin-bottom:.5rem}.investment-block-card .block-editor-logo-preview span{display:block;font-size:.8rem;font-weight:500;margin-bottom:.5rem;text-transform:uppercase}.investment-block-card .block-editor-logo-preview .logo-content{align-items:center;border:1px solid #949494;display:flex;justify-content:space-between;padding:1.5rem}.investment-block-card .investment-details .components-base-control__field{align-items:center;display:flex}.investment-block-card .investment-details .components-base-control__field label{margin-bottom:0;width:100px}.investment-block-card .investment-details .components-base-control__field .components-text-control__input{width:calc(100% - 100px)}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/investment-block/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.investment-block-card .block-editor-media-placeholder {
+  margin-bottom: 0.5rem;
+}
+.investment-block-card .block-editor-logo-preview {
+  margin-bottom: 0.5rem;
+}
+.investment-block-card .block-editor-logo-preview span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.investment-block-card .block-editor-logo-preview .logo-content {
+  align-items: center;
+  border: 1px solid #949494;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+.investment-block-card .investment-details .components-base-control__field {
+  align-items: center;
+  display: flex;
+}
+.investment-block-card .investment-details .components-base-control__field label {
+  margin-bottom: 0;
+  width: 100px;
+}
+.investment-block-card .investment-details .components-base-control__field .components-text-control__input {
+  width: calc(100% - 100px);
+}
+
+/*# sourceMappingURL=index.css.map*/
