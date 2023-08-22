@@ -23,7 +23,7 @@ $terms = get_terms( array(
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<div class="filter-bar">
 		<?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
-			<ul class="filter-items-list" role="listbox">
+			<ul class="filter-items-list" role="listbox" tabindex="0">
 			<?php foreach ( $terms as $term ) {
 				echo '<li class="filter-item" role="option" data-filter="' . $term->slug . '">' . $term->name . '</li>';
 				} ?>
