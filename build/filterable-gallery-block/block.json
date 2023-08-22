@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Filterable Investment Gallery",
   "category": "widgets",
-  "icon": "smiley",
+  "icon": "table",
   "description": "Add a filterable gallery of investment posts.",
   "example": {},
   "supports": {
