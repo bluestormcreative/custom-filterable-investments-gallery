@@ -15,6 +15,8 @@
 // Get investment category terms for filter bar.
 $terms = get_terms( array(
     'taxonomy'   => 'investment-category',
+		'orderby'  => 'count',
+		'order'    => 'DESC',
 		'hide_empty' => false,
 ) );
 ?>

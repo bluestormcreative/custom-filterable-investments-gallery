@@ -86,6 +86,12 @@ function Edit({
       logoUrl: undefined,
       logoAlt: undefined
     });
+    updateMeta({
+      ...meta,
+      logoId: undefined,
+      logoUrl: undefined,
+      logoAlt: undefined
+    });
   };
   const renderLogoPreview = logo => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "block-editor-logo-preview"
@@ -126,6 +132,9 @@ function Edit({
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Business", "cfig"),
     value: business,
     onChange: business => {
+      setAttributes({
+        business
+      });
       updateMeta({
         ...meta,
         business: business
@@ -137,6 +146,9 @@ function Edit({
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Sector", "cfig"),
     value: sector,
     onChange: sector => {
+      setAttributes({
+        sector
+      });
       updateMeta({
         ...meta,
         sector: sector
@@ -148,6 +160,9 @@ function Edit({
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Years", "cfig"),
     value: years,
     onChange: years => {
+      setAttributes({
+        years
+      });
       updateMeta({
         ...meta,
         years: years
@@ -159,6 +174,9 @@ function Edit({
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Type", "cfig"),
     value: type,
     onChange: type => {
+      setAttributes({
+        type
+      });
       updateMeta({
         ...meta,
         type: type
@@ -255,12 +273,13 @@ function save({
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "investment-block-card"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "investment-logo"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    className: "investment-logo",
     src: logoUrl,
     alt: logoAlt,
     width: 200
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "investment-details"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "investment-detail"
